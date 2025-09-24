@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/*Import para la fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 🎨 Estilos para el Modo Claro (por defecto) */
+:root {
+  --background: #f4f6f9;       /* Fondo principal de la página */
+  --foreground: #ffffff;       /* Fondo para elementos como tarjetas o modales */
+  --text-primary: #1c1c1c;     /* Texto principal y títulos */
+  --text-secondary: #484848;   /* Texto secundario y párrafos */
+  --text-subtle: #4f4f4f;       /* Texto menos importante o deshabilitado */
+  
+  --accent-primary: #0078ff;   /* Color de acento principal (botones, enlaces) */
+  --accent-danger: #ff003c;    /* Para errores o alertas importantes */
+  --accent-warning: #ff6b00;   /* Para advertencias */
+  --accent-success: #00d26a;   /* Para acciones exitosas o confirmaciones */
+}
+
+/* 🎨 Estilos para el Modo Oscuro */
+[data-theme="dark"] {
+  --background: #0d1b2a;       /* Fondo principal de la página */
+  --foreground: #112b3c;       /* Fondo para elementos como tarjetas o modales */
+  --text-primary: #e6e9ef;     /* Texto principal y títulos */
+  --text-secondary: #aab4c2;   /* Texto secundario y párrafos */
+  --text-subtle: #aab4c2;       /* Texto menos importante (usamos el mismo que el secundario) */
+
+  --accent-primary: #1e90ff;   /* Color de acento principal */
+  --accent-danger: #ff3366;    /* Para errores o alertas */
+  --accent-warning: #ff9100;   /* Para advertencias */
+  --accent-success: #00ff9d;   /* Para acciones exitosas */
+
+
+  /*Fuente del proyecto*/
+   --font-inter: 'Inter', sans-serif;
+}
+
+html{
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-inter);
+  font-weight: 600;
+}

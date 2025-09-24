@@ -1,15 +1,23 @@
 import { Component, signal } from '@angular/core';
-import {Colores} from './colores/colores';
+import {Header} from './components/header/header';
+import {RouterOutlet} from '@angular/router';
+import {Footer} from './components/footer/footer';
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [Colores],
+  imports: [
+    Header,
+    RouterOutlet,
+    Footer
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('frontend');
- protected readonly secondTitle = signal('Texto secundario')
-  mostrarMensaje:boolean = true;
+  protected readonly title = signal('Gestion de stock');
+
+
 
 }

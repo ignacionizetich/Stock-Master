@@ -1,50 +1,5 @@
-<!--Aca vamos a aplicar una directiva de tipo ngStyle
-esto le definimos al variable dentro de la etiqueta h1 el background
-del color que cree la funcion definida en el componente-->
-<div class="contenedor">
-  @if (mostrarMensaje) {
-    <div>
-      <h1> {{title()}} </h1>
-      <p>lorem ipsum dolor</p>
-    </div>
-  } @else {
-    <div class="contenedor-secundario">
-      <div>
-        <h1> {{secondTitle()}} </h1>
-        <p>Elemento secundario por si no se cumple el if</p>
-      </div>
-    </div>
-    <hr>
-  }
-</div>
-<hr>
-<button (click)="mostrarMensaje = !mostrarMensaje">{{title()}}</button>
-<hr>
-<p>Valor 1: {{mostrarMensaje}}</p>
+<app-header></app-header>
 
+<router-outlet></router-outlet>
 
-
-<!--Aca estamos llamando al componente aleatorio a partir del
-nombre que se le dio en el decorators 'app-aleatorio'
-Se llama aca ya que esta es la plantilla que muestra el componente principal
-de nuestra aplicacion!-->
-<!--<app-aleatorio></app-aleatorio>-->
-
-
-<!--Aca llamamos a app colores ya que es el identifactor de mi componente colores
-
-Esto se le considera anidar componentes ya que tenemos un componente dentro de otro, en este caso
-el componente inicial app.ts esta incluyendo el componente colores.ts-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
-
-
-<!--Ademas podemos reutilizar el componente, es decir, cada componente se maneja
-de forma independiente y encapsulada-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
-<!--<app-colores></app-colores>-->
+<app-footer></app-footer>
