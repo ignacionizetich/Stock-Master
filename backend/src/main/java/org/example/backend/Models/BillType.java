@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "bill_types")
-public class BillTypes {
+public class BillType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
