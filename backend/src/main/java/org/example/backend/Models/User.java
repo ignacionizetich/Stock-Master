@@ -1,45 +1,48 @@
-package org.example.backend.Entity;
+package org.example.backend.Models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="usuarios")
+@ToString
+@Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-
+    @NotBlank
     @Column(name = "name")
-    @NotNull
     private String name;
 
-    @Column(name = "lastname")
-    private String lastname;
+    @NotBlank
+    @Column(name = "surname")
+    private String surname;
 
-
+    @NotBlank
+    @Email(message = "Email should be valid")
     @Column(name = "email", unique = true)
-    @Email(message = "El formato debe ser de tipo email")
     private String email;
 
-
-    @Column(name = "password")
-    @NotNull
+    @NotBlank
+    @Column(name = "pass")
     private String password;
 
+    @NotBlank
+    @Column(name = "acc_status")
+    private int accStatus;
 
+    @NotBlank
     @Column(name = "role")
     private String role;
+
 
 }
