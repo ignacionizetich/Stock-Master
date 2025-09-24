@@ -24,7 +24,7 @@ public class Bill {
 
     @ManyToOne
     @JoinColumn(name = "id_bill_type", referencedColumnName = "id")
-    private BillTypes billType;
+    private BillType billType;
 
     @Column(name = "date")
     private String date;
