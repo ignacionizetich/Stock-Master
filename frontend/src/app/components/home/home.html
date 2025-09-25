@@ -1,0 +1,22 @@
+<section class="hero">
+    <main>
+        <div class="slogan">
+            <h2>Simplify, control, and optimize your inventory with our all-in-one platform designed 
+                <span class="important-text">for the growth of your business.</span>
+            </h2>
+        </div>
+
+        <div class="sub-text">
+            <h3>From small shops to large warehouses, our solution adapts to your stock needs without complications.</h3>
+        </div>
+    </main>
+    
+    <div class="hero-stats">
+        @for (stat of stats; track stat.id) {
+            <div class="stat" [class.animated]="stat.animated" [class.completed]="stat.currentValue === stat.targetValue">
+                <span class="number" [style.color]="stat.color">{{ stat.currentValue }}{{ stat.suffix }}</span>
+                <span class="label">{{ stat.label }}</span>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,195 @@
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 6rem;
+    min-height: 100vh;
+    position: relative;
+}
+
+.hero main {
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 6rem;
+    height: 100%;
+}
+
+.slogan > h2 {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.important-text {
+    color: var(--accent-primary);
+}
+
+.sub-text h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    font-size: larger;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.5;
+    max-width: 500px;
+}
+
+.hero-stats {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stat.animated {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* El color ahora se controla dinámicamente via TypeScript */
+.stat .number {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stat:hover .number {
+    transform: scale(1.05);
+}
+
+.stat .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Efecto cuando completa la animación */
+.stat.completed {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+@keyframes pulse {
+    0% { 
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% { 
+        transform: scale(1.1);
+        filter: brightness(1.2);
+    }
+    100% { 
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.number.pulse {
+    animation: pulse 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Animación escalonada */
+.stat:nth-child(1) { transition-delay: 0.1s; }
+.stat:nth-child(2) { transition-delay: 0.2s; }
+.stat:nth-child(3) { transition-delay: 0.3s; }
+.stat:nth-child(4) { transition-delay: 0.4s; }
+
+.stat.animated:nth-child(1) { transition-delay: 0.1s; }
+.stat.animated:nth-child(2) { transition-delay: 0.2s; }
+.stat.animated:nth-child(3) { transition-delay: 0.3s; }
+.stat.animated:nth-child(4) { transition-delay: 0.4s; }
+
+/* Hover effects */
+.stat {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stat:hover,
+.stat:hover .number {
+    transition-delay: 0s !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 2rem;
+        text-align: center;
+    }
+    
+    .hero main {
+        grid-column: 1/2;
+        padding-left: 0;
+        align-items: center;
+    }
+    
+    .hero-stats {
+        grid-column: 1/2;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .slogan > h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 1rem;
+        min-height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .slogan > h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat .number {
+        font-size: 2rem;
+    }
+    
+    .stat {
+        padding: 1.5rem 1rem;
+    }
+}
