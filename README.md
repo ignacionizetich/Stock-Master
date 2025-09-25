@@ -3,14 +3,9 @@
 **Control de stock de inventario utilizando Java + Spring y Angular para el frontend**
 Backend:
 ![Java](https://img.shields.io/badge/Java-36.3%25-blue?style=flat)
-![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
-![SQL](https://img.shields.io/badge/-SQL-003B57?style=for-the-badge&logo=postgresql&logoColor=white)
-
-Frontend:
-![TypeScript](https://img.shields.io/badge/TypeScript-32.5%25-blue?style=flat)
 ![CSS](https://img.shields.io/badge/CSS-25.4%25-blue?style=flat)
 ![HTML](https://img.shields.io/badge/HTML-5.8%25-blue?style=flat)
-![Angular](https://img.shields.io/badge/-Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+
 
 ## Descripción
 
@@ -18,8 +13,15 @@ Stock Master es una aplicación para la gestión y control de inventario, desarr
 
 ## Tecnologías usadas
 
-- **Backend:** Java, Spring Boot
-- **Frontend:** Angular (TypeScript), HTML, CSS
+- **Backend:**
+![Java](https://img.shields.io/badge/-Java-007396?style=for-the-badge&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![SQL](https://img.shields.io/badge/-SQL-003B57?style=for-the-badge&logo=postgresql&logoColor=white)
+- **Frontend:**
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Angular](https://img.shields.io/badge/-Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 
 ## Características principales
 
