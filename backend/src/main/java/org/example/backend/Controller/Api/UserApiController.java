@@ -22,14 +22,25 @@ public class UserApiController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user) {
+    public ResponseEntity<String> register(@RequestBody RegisterDTO registerRequest) {
         try{
-            User registeredUser = userService.registerUser(user);
-            return ResponseEntity.ok(registeredUser);
+            User registeredUser = new User();
+            registeredUser.setName(registerRequest.name());
+            registeredUser.setSurname(registerRequest.surname());
+            registeredUser.setEmail(registerRequest.email());
+            registeredUser.setPassword(registerRequest.password());
+            registeredUser.setAccStatus(registerRequest.acc_status());
+            registeredUser.setRole(registeredUser.getRole());
+            userService.registerUser(registeredUser);
+            return ResponseEntity.ok().body("The user has been registered!");
         }catch (UserException e){
             return ResponseEntity.badRequest().body(null);
         } catch (Exception e) {
             return ResponseEntity.status(500).body(null);
         }
     }
+
+    private record RegisterDTO(String name, String surname, String email, String password, int acc_status, String role) {}
 }
+
+

@@ -16,7 +16,7 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public Item addItem(Item item){
+    public void addItem(Item item){
         if(itemRepository.findByItemName(item.getItemName()).isPresent()){
             throw new ItemException("Item with this name already exists.");
         }
@@ -30,7 +30,11 @@ public class ItemService {
             throw new ItemException("Stock cannot be negative.");
         }
 
-        return itemRepository.save(item);
+        if (item.getItemType() == null || item.getItemType().getTypeName().isBlank()){
+            throw new ItemException("The item Type cannot be null or the item Type cannot be blank");
+        }
+
+         itemRepository.save(item);
     }
 
 
