@@ -31,7 +31,7 @@ public class UserService {
         user.setName(capitalizeNameAndSurname(user.getName()));
         user.setSurname(capitalizeNameAndSurname(user.getSurname()));
         user.setAccStatus(0);  // 0 inactive, 1 active, 2 banned
-        user.setRole("USER");// USER or ADMIN
+        user.setRole("USER"); // USER or ADMIN
         user.setPassword(passwordEncoder.encode(user.getPassword()));
          userRepository.save(user);
     }

@@ -14,25 +14,32 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebConfig {
 
 
-@Bean
-public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-    return http
-            .csrf(AbstractHttpConfigurer::disable)
-            .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/", "/api/users/register", "api/items/add",
-                            "/swagger-ui/**", "/swagger-ui.html","/v3/api-docs/**"
-                    ).permitAll()
-                    .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                    .loginPage("/login") ///  Este es el endpoint que renderiza el login (tiene que ser un controller ya que tiene que renderizar una vista HTML)
-                    .permitAll()
-            )
-//            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class) /// Esto es para los JWT que despues lo hago
-            .build();
-}
-
-
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/",
+                                "/api/users/register",
+                                "api/items/add",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/oauth2/**", /// Permitir flujo OAuth2
+                                "/login/oauth2/**" /// Permitir callback de Google
+                        ).permitAll()
+                        .anyRequest().authenticated()
+                )
+                // Opción: Habilitar solo OAuth2 Login
+                .oauth2Login(oauth2 -> oauth2
+                        .permitAll() // Esto no suele ser necesario si ya lo manejas con authorizeHttpRequests
+                        .defaultSuccessUrl("/home", true)
+                )
+///                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+///           Esto es para los JWT que despues lo hago
+                .build();
+    }
 
 
     @Bean
