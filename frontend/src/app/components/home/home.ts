@@ -81,7 +81,7 @@ export class Home implements OnInit {
   }
 
   private animateNumberWithColor(stat: any) {
-    const duration = 5000; // 5 segundos - mucho más lento
+    const duration = 1500; // 1.5 segundos - mucho más lento
     const startTime = Date.now();
     const startValue = 0;
     const endValue = stat.targetValue;
