@@ -81,7 +81,7 @@ export class Home implements OnInit {
   }
 
   private animateNumberWithColor(stat: any) {
-    const duration = 5000; // 5 segundos - mucho más lento
+    const duration = 1500; // 1.5 segundos - mucho más lento
     const startTime = Date.now();
     const startValue = 0;
     const endValue = stat.targetValue;
@@ -105,7 +105,7 @@ export class Home implements OnInit {
         requestAnimationFrame(animate);
       } else {
         stat.currentValue = endValue;
-        stat.color = '#3b82f6'; // Azul final
+        stat.color = '#0078ff'; // Azul final
         this.addCompletionEffect(stat.id);
       }
     };
@@ -118,15 +118,15 @@ export class Home implements OnInit {
     if (progress < 0.33) {
       // Rojo a Amarillo (0% a 33%)
       const subProgress = progress / 0.33;
-      return this.interpolateColor('#dc2626', '#f59e0b', subProgress);
+      return this.interpolateColor('#ff003c', '#ff9100', subProgress);
     } else if (progress < 0.66) {
       // Amarillo a Azul claro (33% a 66%)
       const subProgress = (progress - 0.33) / 0.33;
-      return this.interpolateColor('#f59e0b', '#60a5fa', subProgress);
+      return this.interpolateColor('#ff9100', '#60a5fa', subProgress);
     } else {
       // Azul claro a Azul final (66% a 100%)
       const subProgress = (progress - 0.66) / 0.34;
-      return this.interpolateColor('#60a5fa', '#3b82f6', subProgress);
+      return this.interpolateColor('#60a5fa', '#0078ff', subProgress);
     }
   }
 

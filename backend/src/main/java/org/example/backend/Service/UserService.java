@@ -1,23 +1,23 @@
 package org.example.backend.Service;
 
-import jakarta.validation.constraints.Null;
 import org.example.backend.Exceptions.UserException;
 import org.example.backend.Models.User;
 import org.example.backend.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public User registerUser(User user) throws Exception {
+    public void registerUser(User user) throws UserException {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new UserException("Email already has an account.");
         }
@@ -31,8 +31,9 @@ public class UserService {
         user.setName(capitalizeNameAndSurname(user.getName()));
         user.setSurname(capitalizeNameAndSurname(user.getSurname()));
         user.setAccStatus(0);  // 0 inactive, 1 active, 2 banned
-        user.setRole("USER");  // USER or ADMIN
-        return userRepository.save(user);
+        user.setRole("USER"); // USER or ADMIN
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+         userRepository.save(user);
     }
 
     /// CAPITALIZE NAME AND SURNAME

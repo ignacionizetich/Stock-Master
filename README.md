@@ -5,6 +5,7 @@ Backend:
 ![Java](https://img.shields.io/badge/Java-36.3%25-blue?style=flat)
 ![CSS](https://img.shields.io/badge/CSS-25.4%25-blue?style=flat)
 ![HTML](https://img.shields.io/badge/HTML-5.8%25-blue?style=flat)
+![TypeScript](https://img.shields.io/badge/TypeScript-32.5%25-blue?style=flat)
 
 
 ## Descripción
